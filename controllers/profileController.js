@@ -1,7 +1,9 @@
 const userModel = require("../model/userModel")
 const path = require('path')
 const logger = require("../loggers/logger")
-
+const cloudinary = require("../cloudinary")
+const fs = require("fs")
+const { url } = require("inspector")
 
 function getProfile(req, res){
     try {
@@ -52,18 +54,50 @@ async function editProfile(req, res){
     }
 }
 
-function editProfilePic(req, res){
+async function editProfilePic(req, res){
     try {
-        // const imagePath = path.join(__dirname, `../${req.file.destination}/${req.file.filename}`)
-        // console.log(imagePath)
-        console.log(req.file)
-        const file = req.file.filename
-        console.log(typeof file)
+        const session = req.session;
+        const email = session.userid
+        const uploader = async (path) => await cloudinary.uploads(path, 'Images')
+
+            var urls = []
+            const files = req.files
+            // console.log(files)
+            for(const file of files){
+                const {path} = file
+
+                var newPath = await uploader(path)
+
+                urls.push(newPath)
+                fs.unlinkSync(path)
+                
+
+            }
+            try {
+                const user = await userModel.findOne({email})
+                const userID = user.id
+
+                var updateUser = await userModel.findByIdAndUpdate(userID, { profile_pic: newPath.url }, { new: true })
+            } catch (error) {
+                logger.error(' update user not successful! ' + error)
+            }
 
 
-        res.send("file updated successfully!")
+            res.status(200).json({
+                message: "images uploaded successfully!",
+                user: {
+                    name: updateUser.first_name + " " + updateUser.last_name,
+                    dob: updateUser.dob,
+                    email: updateUser.email,
+                    profile_pic: updateUser.profile_pic,
+                    createdAt: updateUser.createdAt
+                }
+            })
+
+
     } catch (error) {
-        
+        logger.error(error)
+        res.status(500).send('please check your connection!, try again later! ' + error)
     }
 }
 

@@ -36,7 +36,7 @@ app.use(session({
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60 * 60 * 200 }
+    cookie: { maxAge: 60 * 60 * 100 }
 }))
 app.use(limiter)
 
