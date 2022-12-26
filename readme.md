@@ -1,52 +1,173 @@
-# simple-user-management-api
-** This API is built by *Abdussalam Mujeeb-ur-rahman* on the authority of *Technify Incubator* **.
-### The API is mainly for user management, with basic authentication, validation, authorization, security
----
-
-## - **POST** sign up
-`http://localhost:3000/auth/signup` > sign up with details 
-### **body**
-`{
-  "first_name": "firstname",
-  "last_name": "lastname",
-  "dob": "09-06-2004",
-  "email": "gmail@gmail.com",
-  "password": "password"
-}`
->
----
-
-## - **POST** login
-`http://localhost:3000/auth/login` > login with the correct email and password
-### **body**
- `{
-  "email": "gmail@gmail.com",
-  "password": "password"
-}`
-
->
----
-
-## - **POST** edit profile
-`http://localhost:3000/profile/edit_profile` > you can only edit three of your details, which are last_name, first_name and dob, and you can decide to edit only one or two or all three.
-### **body**
-`{
-  "last_name": "lastname",
-  "first_name": "firstname",
-  "dob": "10-10-2009"
-}` 
-
->
----
-
-## - **POST** edit profile picture 
-`http://localhost:3000/profile/edit_profile_pic` > do not forget to include multipart/form-data
-### **body** 
-`<form action="/profile" method="post" enctype="multipart/form-data">
-  <input type="file" name="image" />
-</form>`
->
----
-
-## - **DELETE** delete user > note: you can only delete your account when you are logged in
-`http://localhost:3000/user`
+{
+	"info": {
+		"_postman_id": "bf540f68-b949-4a80-b30e-c2be90b59a49",
+		"name": "simple-user-management-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23410424"
+	},
+	"item": [
+		{
+			"name": "get homepage",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Abdussalam\",\r\n    \"last_name\": \"Abdussalam\",\r\n    \"dob\": \"09-06-2004\",\r\n    \"email\": \"abduss@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"abdussalam@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"last_name\": \"Abdussalam\",\r\n    \"first_name\": \"saleem\",\r\n    \"dob\": \"10-10-2009\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/profile/edit_profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"profile",
+						"edit_profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit profile picture",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/User/Desktop/Ice/png-icon/files.img/5.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/profile/edit_profile_pic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"profile",
+						"edit_profile_pic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
