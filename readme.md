@@ -42,9 +42,9 @@
 ## - **POST** edit profile picture 
 `http://localhost:3000/profile/edit_profile_pic` > do not forget to include multipart/form-data
 ### **body** 
-`<form action="/profile" method="post" enctype="multipart/form-data">
+"<form action="/profile" method="post" enctype="multipart/form-data">
   <input type="file" name="image" />
-</form>`
+</form>"
 >
 ---
 
