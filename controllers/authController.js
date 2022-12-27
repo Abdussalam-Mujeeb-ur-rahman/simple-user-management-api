@@ -28,6 +28,7 @@ async function signup(req, res) {
       session.userid = email;
 
       logger.info("user created");
+      res.status(201)
       res.json({
         name: newUser.first_name + " " + newUser.last_name,
         dob: newUser.dob,

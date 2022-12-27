@@ -42,7 +42,7 @@ app.use(limiter)
 
 app.get('/', (req, res) => {
     try {
-        res.status(200).send('Welcome to simple-user-management-api created by Abdussalam on the authority of Technify Incubator')
+        res.status(200).send("Welcome to simple-user-management-api created by Abdussalam on the authority of Technify Incubator")
     } catch (error) {
         res.status(500)
         res.json({error})
@@ -63,3 +63,6 @@ app.use((error, req, res, next) => {
 app.listen(port, () => {
  logger.info("server is running!");
 });
+
+
+module.exports = app
