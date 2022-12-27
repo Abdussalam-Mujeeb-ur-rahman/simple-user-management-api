@@ -4,7 +4,7 @@
 ---
 
 ## - **POST** sign up
-`http://localhost:3000/auth/signup` > sign up with details 
+`https://abdussalam-mujeeb-ur-rahman-simple-user.onrender.com/auth/signup` > sign up with details 
 ### **body**
 `{
   "first_name": "firstname",
@@ -17,7 +17,7 @@
 ---
 
 ## - **POST** login
-`http://localhost:3000/auth/login` > login with the correct email and password
+`https://abdussalam-mujeeb-ur-rahman-simple-user.onrender.com/auth/login` > login with the correct email and password
 ### **body**
  `{
   "email": "gmail@gmail.com",
@@ -28,7 +28,7 @@
 ---
 
 ## - **POST** edit profile
-`http://localhost:3000/profile/edit_profile` > you can only edit three of your details, which are last_name, first_name and dob, and you can decide to edit only one or two or all three.
+`https://abdussalam-mujeeb-ur-rahman-simple-user.onrender.com/profile/edit_profile` > you can only edit three of your details, which are last_name, first_name and dob, and you can decide to edit only one or two or all three.
 ### **body**
 `{
   "last_name": "lastname",
@@ -40,7 +40,7 @@
 ---
 
 ## - **POST** edit profile picture 
-`http://localhost:3000/profile/edit_profile_pic` > do not forget to include multipart/form-data
+`https://abdussalam-mujeeb-ur-rahman-simple-user.onrender.com/profile/edit_profile_pic` > do not forget to include multipart/form-data
 ### **body** 
 {form action="/profile" method="post" enctype="multipart/form-data"}
   {input type="file" name="image" /}
@@ -49,4 +49,4 @@
 ---
 
 ## - **DELETE** delete user > note: you can only delete your account when you are logged in
-`http://localhost:3000/user`
+`https://abdussalam-mujeeb-ur-rahman-simple-user.onrender.com/user`
