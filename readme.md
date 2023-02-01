@@ -3,6 +3,8 @@
 ### The API is mainly for user management, with basic authentication, validation, authorization, security
 ---
 
+## Link to postman - https://documenter.getpostman.com/view/23410424/2s8ZDeUzH7
+
 ## - **POST** sign up
 `https://abdussalam-mujeeb-ur-rahman-simple-user.onrender.com/auth/signup` > sign up with details 
 ### **body**
@@ -41,11 +43,7 @@
 
 ## - **POST** edit profile picture 
 `https://abdussalam-mujeeb-ur-rahman-simple-user.onrender.com/profile/edit_profile_pic` > do not forget to include multipart/form-data
-### **body** 
-{form action="/profile" method="post" enctype="multipart/form-data"}
-  {input type="file" name="image" /}
 
->
 ---
 
 ## - **DELETE** delete user > note: you can only delete your account when you are logged in
