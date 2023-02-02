@@ -16,7 +16,7 @@ const helmet = require("helmet")
 const { rateLimit } = require('express-rate-limit')
 const limiter = rateLimit({
   windowMS: 15 * 60 * 1000,
-  max: 100,
+  max: 50,
   standardHeaders: true,
   legacyHeaders: false
 })
@@ -39,10 +39,15 @@ app.use(session({
     cookie: { maxAge: 60 * 60 * 100 }
 }))
 app.use(limiter)
+app.use(express.urlencoded({extended: false}))
+app.use(express.static('views'))
+app.set('view engine', 'ejs')
+app.set('views', 'views')
 
 app.get('/', (req, res) => {
     try {
-        res.status(200).send("Welcome to simple-user-management-api created by Abdussalam on the authority of Technify Incubator")
+        res.status(200)
+        res.render('homePage')
     } catch (error) {
         res.status(500)
         res.json({error})
